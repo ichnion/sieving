@@ -1,0 +1,22 @@
+[package]
+name = "sieving"
+version = "0.1.0"
+edition = "2018"
+authors = ["Gawen Monnot <gawen@georepublic.de>"]
+description = "Hide your sensitive data"
+license = "GPL-3.0"
+keywords = ["cli"]
+categories = ["command-line-utilities"]
+homepage = "https://ichnion.github.io/website/"
+readme = "README.md"
+
+[dependencies]
+structopt = "0.3.13"
+walkdir = "2"
+regex = "1"
+colored = "2"
+indicatif = {version = "0.15.0", features = ["rayon"]}
+
+[[bin]]
+path = "src/main.rs"
+name = "sieving"
