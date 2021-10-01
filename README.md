@@ -63,4 +63,12 @@ For our example, here is the file after scanning it:
 
 ![image](https://user-images.githubusercontent.com/79226149/135601227-0c2c5473-3495-43e7-94f7-1955a175d944.png)
 
+## What sensitive data are currently managed by ``sieving``? 
+
+It is really easy for developers to contribute to ``sieving`` and particularly to add new sensitive data managed by the scanner. So if you have any idea of what data could/should be hidden, please feel free to open an issue. 
+Currently, ``sieving`` manages : 
+
+-``Email addresses``
+-``IP addresses``
+-``IBAN``
 
