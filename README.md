@@ -15,6 +15,7 @@ Depending on your OS (Windows, Linux or Mac), click on one the three files highl
 
 It should download the file on your device. Then you need to uncompress it.
 
+----------------------------
 #### Windows 
 We are using 7zip to unzip ``sieving-windows.tar.gz``.
 Put the extracted file in `C:\Windows\System32`, and the installation is completed. You should now be able to use ``sieving`` in a terminal.
@@ -52,9 +53,12 @@ $ sieving PATH_TO_YOUR_FILE_OR_DIRECTORY
 Then ``sieving`` will analyze your files and eventually detect some sensitive data.
 For example with this file: 
 ![image](https://user-images.githubusercontent.com/79226149/135600988-509f8fa5-697f-4389-9ad2-c347d8e1a777.png)
+
 if we run ``sieving``:
 ![image](https://user-images.githubusercontent.com/79226149/135600570-da9b5c26-c64d-4e2b-8a09-3f03602abea8.png)
+
 You need to type ``yes`` or ``no`` depending on if you want to hide data or not. 
+
 For our example, here is the file after scanning it: 
 ![image](https://user-images.githubusercontent.com/79226149/135601227-0c2c5473-3495-43e7-94f7-1955a175d944.png)
 
