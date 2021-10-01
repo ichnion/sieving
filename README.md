@@ -5,7 +5,7 @@
 ## Installing Sieving
 There are different ways to install ``sieving``. The first method is particularly meant to be used by non-developer users.
 
-### Non-developer users
+### *Non-developer users
 
 First click on "Releases" :
 
@@ -34,7 +34,7 @@ Extract `sieving-linux.tar.gz` in usr/local/bin.
 The installation is completed, you should now be able to use Excavator in a terminal.
 
 ----------------------------
-### Developer users
+### *Developer users
 
 This part is meant to users who want to contribute to the development of ``sieving``. You will need first to have the Rust Programming Language installed on your device. 
 Once, you have Rust, you can easily install ``sieving`` from crates.io. 
