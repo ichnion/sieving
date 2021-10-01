@@ -1,6 +1,6 @@
 # sieving
 
-``sieving`` is a scanner that allow users to hide sensitive data from their files. It is really useful if you want to share your files without spreading precious data, but also if you store for a long time your files, and want to prevent yourself from any leak.
+``sieving`` is a scanner that allows users to hide sensitive data from their files. It is really useful if you want to share your files without spreading precious data, but also if you store for a long time your files, and want to prevent yourself from any leak.
 
 ## Installing Sieving
 There are different ways to install ``sieving``. The first method is particularly meant to be used by non-developer users.
@@ -60,6 +60,7 @@ if we run ``sieving``:
 You need to type ``yes`` or ``no`` depending on if you want to hide data or not. 
 
 For our example, here is the file after scanning it: 
+
 ![image](https://user-images.githubusercontent.com/79226149/135601227-0c2c5473-3495-43e7-94f7-1955a175d944.png)
 
 
