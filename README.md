@@ -69,6 +69,8 @@ It is really easy for developers to contribute to ``sieving`` and particularly t
 Currently, ``sieving`` manages : 
 
 -``Email addresses``
+
 -``IP addresses``
+
 -``IBAN``
 
