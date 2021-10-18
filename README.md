@@ -74,3 +74,5 @@ Currently, ``sieving`` manages :
 
 -``IBAN``
 
+-``Japanese Phone Number``
+

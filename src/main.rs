@@ -1,13 +1,13 @@
 use structopt::StructOpt;
 use std::fs::File;
 use std::io::{self, Write};
-use regex::Regex;
 use walkdir::WalkDir;
 use indicatif::{ProgressBar, ProgressStyle};
 use std::thread;
 use std::time::Duration;
 use colored::*;
 
+mod regex_functions;
 #[derive(StructOpt)]
 struct Cli {
     #[structopt(parse(from_os_str))]
@@ -32,8 +32,9 @@ fn main() -> Result<(), io::Error> {
         pb.set_position(i as u64);
         thread::sleep(Duration::from_millis(124));
     }
-    let regex_list=vec![create_iban(),create_email_address(),create_ip_address()];
-    let regex_list_names=vec!["IBAN","EMAIL ADDRESS","IP ADDRESS"];
+    let regex_list=vec![regex_functions::create_iban(),regex_functions::create_email_address(),regex_functions::create_ip_address(),
+    regex_functions::create_japanese_phone_number1(),regex_functions::create_japanese_phone_number2(),regex_functions::create_japanese_phone_number3()];
+    let regex_list_names=vec!["IBAN","EMAIL ADDRESS","IP ADDRESS","JAPANESE PHONE NUMBER","JAPANESE PHONE NUMBER","JAPANESE PHONE NUMBER"];
     for j in 0..regex_list.len() {
         let re = &regex_list[j];
         for entry in WalkDir::new(&args.path)
@@ -53,11 +54,15 @@ fn main() -> Result<(), io::Error> {
                     println!("There is {} potential {} in this file: {}, do you want to hide it?\n{}\n{}/{}:", "1".red().bold(),regex_list_names[j].red().bold(), d_name.red().bold(),"Be careful, this will change irredemiably your file.".yellow(),"YES".green(),"NO".red());
                     i=1;
                     count_data=1;
+                    println!("{}",list[0]);
                 }
                 else if list.len()>1 {
                     println!("There are {} potential {} in this file: {}, do you want to hide them?\n{}\n{}/{}:",list.len().to_string().red().bold(),regex_list_names[j].red().bold(),d_name.red().bold(),"Be careful, this will change irredemiably your file.".yellow(),"YES".green(),"NO".red());
                     i=1;
                     count_data=1;
+                    for elements in 0..list.len() {
+                        println!("{}",list[elements]);
+                    }
                 }
                 else {
                     i=0;
@@ -91,35 +96,3 @@ fn main() -> Result<(), io::Error> {
     Ok(()) 
 }
 
-fn create_iban() -> regex::Regex {
-    return Regex::new(r"(?m)[A-Z]{2}\d{25}\b").unwrap();
-}
-
-fn create_email_address() -> regex::Regex {
-    return Regex::new(r"(?m)([a-z0-9_+]([a-z0-9_+.]*[a-z0-9_+])?)@([a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,6})").unwrap();
-}
-
-fn create_ip_address() -> regex::Regex {
-    return Regex::new(r"(?m)[0-9]{1,3}(\.[0-9]{1,3}){3}\b").unwrap();
-}
-
-
-#[cfg(test)]
-mod tests {
-    use super::*;
-    #[test]
-    fn iban_check() {
-        let re=create_iban();
-        assert!(re.is_match("FR7630001007941234567890185"));
-    }
-    #[test]
-    fn email_check() {
-        let re=create_email_address();
-        assert!(re.is_match("gawen@georepublic.de"));
-    }
-    #[test]
-    fn ip_check() {
-        let re=create_ip_address();
-        assert!(re.is_match("255.255.255.255"));
-    }
-}
